@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras - NetMarket</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <header>
+        <div class="store-name">NetMarket</div>
+        <nav>
+            <ul>
+                <li><a href="inicio.html">Inicio</a></li>
+                <li><a href="productosyservicios.html">Productos y Servicios</a></li>
+                <li><a href="ayuda.html">Ayuda</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="carrito.html">Carrito</a></li>
+                <li><a href="metododepago.html">Método de Pago</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="carrito">
+            <h1>Carrito de Compras</h1>
+            <div id="lista-carrito"></div>
+            <br>
+            <p><strong>Envío:</strong> $399</p>
+            <br>
+            <p id="total"></p>
+            <button class="boton-compra" onclick="irAMetodoPago()">Finalizar Compra</button>
+        </section>
+    </main>
+    
+    <script>
+        function mostrarCarrito() {
+            const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            const listaCarrito = document.getElementById('lista-carrito');
+            let total = 399; // Costo de envío
+            listaCarrito.innerHTML = '';
+    
+            carrito.forEach((item) => {
+                const itemDiv = document.createElement('div');
+                itemDiv.classList.add('item-carrito');
+                itemDiv.innerHTML = `<p>${item.nombre} - $${item.precio}</p>`;
+                listaCarrito.appendChild(itemDiv);
+                total += item.precio;
+            });
+    
+            document.getElementById('total').innerHTML = `<strong>Total a pagar:</strong> $${total}`;
+        }
+    
+        function irAMetodoPago() {
+            // Redirige al usuario a la página de método de pago
+            window.location.href = "metododepago.html";
+        }
+    
+        mostrarCarrito();
+    </script>
+</body>
+</html>

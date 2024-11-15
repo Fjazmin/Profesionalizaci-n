@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos y Servicios - NetMarket</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <header>
+        <div class="store-name">NetMarket</div>
+        <nav>
+            <ul>
+                <li><a href="inicio.html">Inicio</a></li>
+                <li><a href="productosyservicios.html">Productos y Servicios</a></li>
+                <li><a href="ayuda.html">Ayuda</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="carrito.html">Carrito</a></li>
+            </ul>
+        </nav>
+    </header>
+<main>
+    <section class="inventario">
+        <h1>Productos de Hardware</h1>
+        <div class="contenedor-productos">
+            <div class="producto">
+                <img src="imagenes/laptop.jpeg" alt="Laptop Gaming">
+                <h2>Laptop Gamer Dell</h2>
+                <p>NVIDIA GeForce RTX 4050 - 15.6" - Intel Core i7-13650HX - 16GB - 512GB SSD - Windows 11.</p>
+                <p><strong>Precio:</strong> $24,000</p>
+                <button class="boton-compra" onclick="agregarAlCarrito('Laptop Gamer Dell', 24000)">Agregar al Carrito</button>
+            </div>
+            <div class="producto">
+                <img src="imagenes/monitor.jpeg" alt="Monitor Ultra HD">
+                <h2>Monitor Lenovo</h2>
+                <p>27" - Full HD - HDMI - VGA</p>
+                <p><strong>Precio:</strong> $2,269 </p>
+                <button class="boton-compra" onclick="agregarAlCarrito('Monitor Lenovo', 2269)">Agregar al Carrito</button>
+            </div>
+            <div class="producto">
+                <img src="imagenes/teclado.jpeg" alt="Teclado Mecánico">
+                <h2>Teclado Gamer Razer Blackwidow</h2>
+                <p>Teclado retroiluminado RGB Alámbrico - Inglés - Switch Green.</p>
+                <p><strong>Precio:</strong> $4,779</p>
+                <button class="boton-compra" onclick="agregarAlCarrito('Teclado Gamer Razer Blackwidow', 4779)">Agregar al Carrito</button>
+            </div>
+            <div class="producto">
+                <img src="imagenes/discoduro.jpeg" alt="Disco Duro Externo">
+                <h2>Disco Duro Externo ADATA</h2>
+                <p>2.5" - 4TB - USB 3.1 - Windows/Mac/Linux - Negro.</p>
+                <p><strong>Precio:</strong> $2,389</p>
+                <button class="boton-compra" onclick="agregarAlCarrito('Disco Duro Externo ADATA', 2389)">Agregar al Carrito</button>
+            </div>
+            <div class="producto">
+                <img src="imagenes/router.jpeg" alt="Router WiFi 6">
+                <h2>Router TP-LINK ARCHER</h2>
+                <p>2.4/5GHz - 574/2402 Mbps - 4x RJ-45 - 4 Antenas.</p>
+                <p><strong>Precio:</strong> $1,239</p>
+                <button class="boton-compra" onclick="agregarAlCarrito('Router TP-LINK ARCHER', 1239)">Agregar al Carrito</button>
+            </div>
+        </div>
+        <h1>Servicios de TI</h1>
+        <div class="contenedor-productos">
+            <div class="producto">
+                <img src="imagenes/mantenimiento.png" alt="Mantenimiento de Computadoras">
+                <h2>Mantenimiento de Computadoras</h2>
+                <p>Servicio completo de limpieza, optimización y actualización de software.</p>
+                <p><strong>Precio:</strong> $999</p>
+                <button class="boton-compra" onclick="agregarAlCarrito('Mantenimiento de Computadoras', 999)">Agregar al Carrito</button>
+            </div>
+            <div class="producto">
+                <img src="imagenes/consultoria.jpg" alt="Consultoría de Redes">
+                <h2>Consultoría de Redes</h2>
+                <p>Asesoría en diseño e implementación de redes para empresas y hogares.</p>
+                <p><strong>Precio:</strong> $7,000</p>
+                <button class="boton-compra" onclick="agregarAlCarrito('Consultoria de Redes', 7000)">Agregar al Carrito</button>
+            </div>
+            <div class="producto">
+                <img src="imagenes/soporte.png" alt="Soporte Técnico">
+                <h2>Soporte Técnico</h2>
+                <p>Resolución de problemas y soporte para computadoras y dispositivos.</p>
+                <p><strong>Precio:</strong> $14,000</p>
+                <button class="boton-compra" onclick="agregarAlCarrito('Soporte Técnico', 14000)">Agregar al Carrito</button>
+            </div>
+            <div class="producto">
+                <img src="imagenes/antivirus.jpg" alt="Seguridad Informática">
+                <h2>Antivirus</h2>
+                <p>Implementación de medidas de seguridad para proteger tus datos.</p>
+                <p><strong>Precio:</strong> $2,000</p>
+                <button class="boton-compra" onclick="agregarAlCarrito('Antivirus', 2000)">Agregar al Carrito</button>
+            </div>
+            <div class="producto">
+                <img src="imagenes/respaldo.jpg" alt="Respaldo de Datos">
+                <h2>Respaldo de Datos</h2>
+                <p>Servicio de respaldo en la nube y local para tus archivos importantes.</p>
+                <p><strong>Precio:</strong> $1,100</p>
+                <button class="boton-compra" onclick="agregarAlCarrito('Respaldo de Datos', 1100)">Agregar al Carrito</button>
+            </div>
+        </div>
+    </section>
+</main>
+<script>
+    function agregarAlCarrito(nombre, precio) {
+        const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+        carrito.push({ nombre, precio });
+        localStorage.setItem('carrito', JSON.stringify(carrito));
+        alert(`${nombre} ha sido agregado al carrito.`);
+    }
+</script>
+</body>

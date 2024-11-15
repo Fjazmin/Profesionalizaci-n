@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Método de Pago - NetMarket</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <header>
+        <div class="store-name">NetMarket</div>
+        <nav>
+            <ul>
+                <li><a href="inicio.html">Inicio</a></li>
+                <li><a href="productosyservicios.html">Productos y Servicios</a></li>
+                <li><a href="carrito.html">Carrito</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="metodo-pago">
+            <h1>Método de Pago</h1>
+            <p>Ingresa los datos de tu tarjeta para finalizar tu compra de manera segura.</p>
+
+            <form id="form-pago" class="formulario-pago">
+                <label for="nombre-titular">Nombre del Titular:</label>
+                <input type="text" id="nombre-titular" required>
+
+                <label for="numero-tarjeta">Número de Tarjeta:</label>
+                <input type="text" id="numero-tarjeta" maxlength="16" required>
+
+                <label for="fecha-expiracion">Fecha de Expiración (MM/AA):</label>
+                <input type="text" id="fecha-expiracion" maxlength="5" required>
+
+                <label for="cvv">CVV:</label>
+                <input type="text" id="cvv" maxlength="3" required>
+
+                <button type="button" class="btn-finalizar" onclick="finalizarCompra()">Finalizar Compra</button>
+            </form>
+
+            <p id="mensaje-error" style="color: red; display: none;">Por favor, completa todos los campos para continuar con la compra.</p>
+        </section>
+    </main>
+
+    <script>
+        function finalizarCompra() {
+            // Obtener los valores de los campos del formulario
+            const nombreTitular = document.getElementById('nombre-titular').value;
+            const numeroTarjeta = document.getElementById('numero-tarjeta').value;
+            const fechaExpiracion = document.getElementById('fecha-expiracion').value;
+            const cvv = document.getElementById('cvv').value;
+            
+            // Validar que todos los campos estén completos
+            if (!nombreTitular || !numeroTarjeta || !fechaExpiracion || !cvv) {
+                // Mostrar mensaje de error si falta algún campo
+                document.getElementById('mensaje-error').style.display = 'block';
+                return; // Detener la ejecución si hay campos vacíos
+            }
+            
+            // Si todos los campos están llenos, se simula la compra
+            alert("Compra realizada con éxito. Gracias por tu compra!");
+            localStorage.removeItem('carrito'); // Vaciar el carrito
+            window.location.href = "inicio.html"; // Redirigir a la página de inicio
+        }
+    </script>
+</body>
+</html>
